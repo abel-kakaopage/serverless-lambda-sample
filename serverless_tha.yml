@@ -1,0 +1,32 @@
+service: sample
+
+custom:
+  prune:
+    automatic: true
+    number: 10
+  env: ${file(./env/tha/${opt:stage,'local'}.json)}
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  region: ap-southeast-1
+  profile: tha
+  memorySize: 256
+  timeout: 10
+  role: arn:aws:iam::447157991422:role/private-api-call-lambda-role
+  vpc:
+    securityGroupIds:
+      - sg-03a1c378ec9059656
+    subnetIds:
+      - subnet-01887582564722d0b
+      - subnet-0ef3cf6e0b3d03a62
+      - subnet-0cf77158921f1e7a2
+  environment:
+    ENV: ${self:custom.env.ENV}
+
+functions:
+  hello:
+    handler: handler.hello
+
+plugins:
+  - serverless-prune-plugin

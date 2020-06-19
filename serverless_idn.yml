@@ -1,0 +1,32 @@
+service: sample
+
+custom:
+  prune:
+    automatic: true
+    number: 10
+  env: ${file(./env/idn/${opt:stage,'local'}.json)}
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  region: ap-southeast-1
+  profile: idn
+  memorySize: 256
+  timeout: 10
+  role: arn:aws:iam::354874399073:role/private-api-call-lambda-role
+  vpc:
+    securityGroupIds:
+      - sg-07c71076827c89f87
+    subnetIds:
+      - subnet-00e9bdd94dc9b7fd6
+      - subnet-023f668c5d91d23c6
+      - subnet-0b91ad437cf7f7c57
+  environment:
+    ENV: ${self:custom.env.ENV}
+
+functions:
+  hello:
+    handler: handler.hello
+
+plugins:
+  - serverless-prune-plugin
