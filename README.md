@@ -126,7 +126,7 @@
 ### 원격 서버 배포
     $ sls deploy -s [dev/sandbox/production] -c [serverless_idn.yml/serverless_twn.yml/serverless_tha.yml]
 
-### 기타
+### 참고
     - Serverless Quick Start
         - https://www.serverless.com/framework/docs/providers/aws/guide/quick-start/
     - Serverless.yml Full Reference
