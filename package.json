@@ -1,0 +1,27 @@
+{
+  "name": "sample",
+  "version": "1.0.0",
+  "description": "",
+  "main": "handler.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abel-kakaopage/serverless-lambda-sample.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/abel-kakaopage/serverless-lambda-sample/issues"
+  },
+  "homepage": "https://github.com/abel-kakaopage/serverless-lambda-sample#readme",
+  "dependencies": {
+    "aws-sdk": "^2.699.0",
+    "mysql": "^2.18.1",
+    "redis": "^3.0.2"
+  },
+  "devDependencies": {
+    "serverless-prune-plugin": "^1.4.3"
+  }
+}
